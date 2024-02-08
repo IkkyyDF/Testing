@@ -4962,6 +4962,10 @@ do
 							return
 						end
 
+						if checkMouseInGui(entry) then
+							rightClickMenu(node.Object)
+						end
+
 						if not Option.Selectable then return end
 						
 						
@@ -5007,7 +5011,12 @@ do
 							local pos = Vector2.new(x,y)
 							dragReparent(node.Object,entry:Clone(),pos,entry.AbsolutePosition-pos)
 						elseif Option.Selectable then
-							print("YES")
+							if Selection.Selected[node.Object] then
+								Selection:Set({})
+							else
+								Selection:Set({node.Object})
+							end
+							dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
 						end
 					end)
 
