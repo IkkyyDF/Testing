@@ -5004,17 +5004,10 @@ do
 							return
 						end
 						if Option.Modifiable then
-							curSelect = entry
-							if checkMouseInGui(curSelect) then
-								rightClickMenu(node.Object)
-							end
+							local pos = Vector2.new(x,y)
+							dragReparent(node.Object,entry:Clone(),pos,entry.AbsolutePosition-pos)
 						elseif Option.Selectable then
-							if Selection.Selected[node.Object] then
-								Selection:Set({})
-							else
-								Selection:Set({node.Object})
-							end
-							dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
+							print("YES")
 						end
 					end)
 
@@ -8708,4 +8701,4 @@ scrollBar:Update()
 scrollBarH:Update()
 end)
 
---moonyz
+--moony
