@@ -4965,9 +4965,6 @@ do
 						if not Option.Selectable then return end
 						
 						
-						if checkMouseInGui(curSelect) then
-							rightClickMenu(node.Object)
-						end
 						
 						if not HoldingShift then
 							lastSelectedNode = i + self.ScrollIndex
@@ -5007,8 +5004,10 @@ do
 							return
 						end
 						if Option.Modifiable then
-							local pos = Vector2.new(x,y)
-							dragReparent(node.Object,entry:Clone(),pos,entry.AbsolutePosition-pos)
+							curSelect = entry
+							if checkMouseInGui(curSelect) then
+								rightClickMenu(node.Object)
+							end
 						elseif Option.Selectable then
 							if Selection.Selected[node.Object] then
 								Selection:Set({})
@@ -8709,4 +8708,4 @@ scrollBar:Update()
 scrollBarH:Update()
 end)
 
---moony
+--moonyz
