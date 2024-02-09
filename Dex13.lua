@@ -5012,7 +5012,7 @@ CreateGui = function()
 							end
 						end)
 
-						entry.MouseButton1Up:connect(function()
+						entry.MouseButton1Up:connect(function(x,y)
 							if not Option.Selectable then return end
 
 							local curSelect = entry
