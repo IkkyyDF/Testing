@@ -5010,21 +5010,20 @@ CreateGui = function()
 								end
 								dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
 							end
+							print("ASD")
 						end)
 
-						entry.MouseButton1Up:connect(function(x,y)
-							print("BRO WORKED")
+						entry.MouseButton1Up:connect(function()
+							print("SDA")
 							if not Option.Selectable then return end
-
-							local curSelect = entry
+							
 							local node = TreeList[i + self.ScrollIndex]
 							
-							if checkMouseInGui(curSelect) then
+							if checkMouseInGui(entry) then
 								rightClickMenu(node.Object)
 							end
 						end)
-	
-	
+		
 						entry.Parent = listFrame
 					end
 	
