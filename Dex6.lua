@@ -5020,6 +5020,7 @@ do
 						if not Option.Selectable then return end
 						
                         local node = TreeList[i + self.ScrollIndex]
+                        curSelect = entry						
 						
 						if checkMouseInGui(curSelect) then
 							rightClickMenu(node.Object)
@@ -5027,8 +5028,8 @@ do
 
 						DestroyRightClick()
 						
-						curSelect = entry						
-						if GetAwaitRemote:Invoke() then
+                        
+                        if GetAwaitRemote:Invoke() then
 							bindSetAwaiting:Fire(node.Object)
 							return
 						end
