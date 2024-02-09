@@ -5010,8 +5010,14 @@ CreateGui = function()
 								end
 								dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
 							end
+						end)
+
+						entry.MouseButton1Up:connect(function()
+							if not Option.Selectable then return end
 
 							local curSelect = entry
+
+							
 							local node = TreeList[i + self.ScrollIndex]
 							
 							if checkMouseInGui(curSelect) then
