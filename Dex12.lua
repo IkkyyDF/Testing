@@ -5016,8 +5016,6 @@ CreateGui = function()
 							if not Option.Selectable then return end
 
 							local curSelect = entry
-
-							
 							local node = TreeList[i + self.ScrollIndex]
 							
 							if checkMouseInGui(curSelect) then
