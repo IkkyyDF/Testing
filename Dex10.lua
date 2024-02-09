@@ -5010,7 +5010,15 @@ CreateGui = function()
 								end
 								dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
 							end
+
+							local curSelect = entry
+							local node = TreeList[i + self.ScrollIndex]
+							
+							if checkMouseInGui(curSelect) then
+								rightClickMenu(node.Object)
+							end
 						end)
+	
 	
 						entry.Parent = listFrame
 					end
