@@ -5007,7 +5007,6 @@ do
 							local pos = Vector2.new(x,y)
 							dragReparent(node.Object,entry:Clone(),pos,entry.AbsolutePosition-pos)
 						elseif Option.Selectable then
-							print("ASD")
 							if Selection.Selected[node.Object] then
 								Selection:Set({})
 							else
@@ -5020,12 +5019,15 @@ do
 					entry.MouseButton2Down:connect(function()
 						if not Option.Selectable then return end
 						
+                        local node = TreeList[i + self.ScrollIndex]
+						
+						if checkMouseInGui(curSelect) then
+							rightClickMenu(node.Object)
+						end
+
 						DestroyRightClick()
 						
-						curSelect = entry
-						
-						local node = TreeList[i + self.ScrollIndex]
-						
+						curSelect = entry						
 						if GetAwaitRemote:Invoke() then
 							bindSetAwaiting:Fire(node.Object)
 							return
@@ -5039,12 +5041,6 @@ do
 					
 					entry.MouseButton2Up:connect(function()
 						if not Option.Selectable then return end
-						
-						local node = TreeList[i + self.ScrollIndex]
-						
-						if checkMouseInGui(curSelect) then
-							rightClickMenu(node.Object)
-						end
 					end)
 
 					entry.Parent = listFrame
