@@ -5010,12 +5010,6 @@ CreateGui = function()
 								end
 								dragSelect(i+self.ScrollIndex,true,'MouseButton1Up')
 							end
-
-							curSelect = entry
-
-							if checkMouseInGui(curSelect) then
-								rightClickMenu(node.Object)
-							end
 						end)
 	
 						entry.Parent = listFrame
@@ -8676,6 +8670,6 @@ CreateGui = function()
 	
 	scrollBar:Update()
 	scrollBarH:Update()
-	end)
+end)
 	
 	--moony
